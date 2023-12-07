@@ -1,0 +1,51 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 35%;
+}
+
+.login-container h2, p {
+
+    text-align: center;
+}
+
+
+.login-container h2 {
+    margin-top: 100px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+.login-info {
+
+    margin: 5px 0 25px 0;
+    height: 51px;
+    border: none;
+    box-shadow: 0px 4px 14px 0px #00000017;
+
+
+}
+
+.login-container input[type="submit"] {
+
+    height: 36px;
+    border: none;
+}
+
+.login-container a {
+    font-family: "work sans";
+    font-weight: bold;
+    color: #3D3D3D;
+
+}
+
+#footer-connexion {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #ffff;
+
+}

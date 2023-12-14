@@ -19,6 +19,7 @@ async function verifLogin(response) {
 function handleSuccessfulLogin(token) {
     // Handle successful login, e.g., store the token, redirect, update UI, etc.
     console.log("Successfully logged in with token:", token);
+    sessionStorage.setItem("token", JSON.stringify(token));
     window.location.href = "index.html";
 }
 

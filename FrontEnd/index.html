@@ -1,84 +1,122 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  
 <html lang="fr">
-
 <head>
 	<meta charset="UTF-8">
 	<title>Sophie Bluel - Architecte d'intérieur</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
+	<script src="https://kit.fontawesome.com/1e4c81f9ae.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
-	<header class="header">
-		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-		<nav>
-			<ul>
-				<li>projets</li>
-				<li>contact</a></li>
-				<li><a href="login.html" class="navlogin">login</a></li>
-				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-			</ul>
-		</nav>
-	</header>
-	<main>
-		<section id="introduction">
-			<figure>
-				<img src="./assets/images/sophie-bluel.png" alt="">
-			</figure>
-			<article>
-				<h2>Designer d'espace</h2>
-				<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison
-					finale du chantier.</p>
-				<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les
-					couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du
-					chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
-				<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG,
-					décorateur(trice)</p>
-			</article>
-		</section>
+	<section id="edition">
+		<div class="mode_edition"><i class="fa-regular fa-pen-to-square"></i>Mode édition
+	</section>
+<header>
+	<h1>Sophie Bluel <span>ARCHITECTE D'INTÉRIEUR</span></h1>
+	<nav>
+		<ul>
+            <li><a href="index.html#portfolio">projets</a></li>
+            <li><a href="index.html#contact">contact</a></li>
+			<li><a href="login.html" id="login_logout">login</a></li>
+			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+		</ul>
+	</nav>
+</header>
+<main>
+	<section id="introduction">
+		<figure>
+			<img src="./assets/images/sophie-bluel.png" alt="">
+		</figure>
+		<article>
+			<h2>Designer d'espace</h2>
+			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
+			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
+		</article>
+	</section>
+	
+	<section id="portfolio">
+		<!--Modals-->
+		<h2>Mes Projets <a href="#modal1"  class="js-modal" id="modif_projet"><i class="fa-regular fa-pen-to-square"></i>modifier</a></h2>
+			<aside id="modal1" style="display:none;">
+				<div class="modal-wrapper" style="display:none;">
+					<div class="top1">
+						<div><button class="js-modal-close-1"><i class="fa-solid fa-x"></i></button></div>
+					</div>
+					<div class="title"><h3>Galerie photo</h3></div>
+					<div class="modal-gallery">
+				</div>
 
-		<!--Portfolio -->
-		<section id="portfolio">
-			<h2>Mes Projets </h2>
-			<div id="filtre-portfolio">
-			</div>
-			<div class="gallery">
-			</div>
-		</section>
+				<div id="separation1"></div>
 
+				<a href="#modal2" class="js-modal" id="ajout_projet">Ajouter une photo </a>
+			</aside>
+			<aside id="modal2" style="display:none;">
+				<div class="modal-wrapper-new" style="display:none;">
+					<div class="top">
+						<div><button class="modal-back"><i class="fa-solid fa-arrow-left"></i></button></div>
+						<div><button class="js-modal-close-new"><i class="fa-solid fa-x"></i></button></div>
+					</div>
+					<div class="title"><h3>Ajout photo</h3></div>
+					<div class="form">
+						<div class="modal-new-photo"> 
+							<div class="picture-selection">
+								<i id="no-picture-preview" class="fa-regular fa-image"></i>
+								<input accept="image/*" type='file' id="input-picture" style="display:none" />
+								<button class="button-add-photo">+ Ajouter photo</button>
+								<div class="precision">jpg, png : 4mo max</div>
+							</div>
+							<img id="picture-preview" name="picture-preview" src="#" alt="your image" />
+						</div>
+						<div class="modal-new-photo-form">
+							<label for="titre">Titre</label>
+							<input name="titre" class="input-titre" type="text"/>
+							<label for="categorie">Catégorie</label>
+							<select name="categorie" class="select-category" type="text"></select>
+							<div id="separation2"></div>
+							<button class="button-submit">Valider</button>
+						</div>
+					</div>
+				</div>
+				
+			</aside>
+		<div class="filter">
+		</div>
+		<div class="gallery">
+		</div>
+	</section>
 
-		<!--Contact-->
-		<section id="contact">
-			<h2>Contact</h2>
-			<p>Vous avez un projet ? Discutons-en !</p>
-			<form action="#" method="post">
-				<label for="name">Nom</label>
-				<input type="text" name="name" id="name">
-				<label for="email">Email</label>
-				<input type="email" name="email" id="email">
-				<label for="message">Message</label>
-				<textarea name="message" id="message" cols="30" rows="10"></textarea>
-				<input type="submit" value="Envoyer">
-			</form>
-		</section>
-	</main>
+	<!--Contact-->
+	<section id="contact">
+		<h2>Contact</h2>
+		<p>Vous avez un projet ? Discutons-en !</p>
+		<form action="#" method="post">
+			<label for="name">Nom</label>
+			<input type="text" name="name" id="name">
+			<label for="email">Email</label>
+			<input type="email" name="email" id="email">
+			<label for="message">Message</label>
+			<textarea name="message" id="message" cols="30" rows="10"></textarea>
+			<input type="submit" value="Envoyer">
+		</form>
+	</section>
+</main>
 
-	<footer>
-		<nav>
-			<ul>
-				<li>Mentions Légales</li>
-			</ul>
-		</nav>
-	</footer>
+<footer>
+	<nav>
+		<ul>
+			<li>Mentions Légales</li>
+		</ul>
+	</nav>
+</footer>
 
-	<script src="script/index.js"></script>
-	<script src="script/modal.js"></script>
-	<script src="script/login.js"></script>
+<script src="script/gallery.js" defer></script>
+<script src="script/modal-gallery.js" defer></script>
+<script src="script/modal-update.js" defer></script>
 </body>
-
 </html>

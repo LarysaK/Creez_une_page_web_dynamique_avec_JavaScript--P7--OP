@@ -1,7 +1,9 @@
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
-*/
+*/ 
+ 
+@import url("modal.css");
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -22,6 +24,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	background-color: #FFFEF8;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -56,19 +59,21 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin: 50px;
+	
 }
 section {
 	margin: 50px 0
 }
 
-h1{
+h1, h1 a{
 	display: flex;
 	flex-direction: column;
 	font-family: 'Syne';
 	font-size: 22px;
 	font-weight: 800;
-	color: #B1663C
+	color: #B1663C;
+	text-decoration: none;
 }
 
 h1 > span {
@@ -183,7 +188,140 @@ input[type="submit"]{
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;
 }
 
+
+.filter {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	justify-content: center;	
+}
+
+.filter a {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+	font-size: 16px;
+	margin-left: 5px;
+	border-radius: 60px;
+	border: 1px solid #1D6154;
+	font-weight: 700;
+	height: 37px;
+	padding: 0 10px 0 10px;
+	margin-bottom: 51px;
+	font-family: 'Syne';
+	text-decoration: none;
+	color: #1D6154;
+	cursor: pointer;
+}
+
+.filter .selected {
+	background: #1D6154;
+	color: #FFF;
+}
+
+#login h2 {
+	margin-top: 150px;
+	display: flex;
+	justify-content: center;
+}
+
+#login label {
+	display: flex;
+	margin-left: 400px;
+	margin-top: 37px;
+	padding: 10px 0;
+}
+
+#login input {
+	display: flex;
+	padding-top: 6px;
+	margin-left: 400px;
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	width: 379px;
+	height: 51px;
+}
+
+#login #se_connecter {
+	margin-top: 47px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+#login a {
+	display: flex;
+	justify-content: center;
+	color: #3d3d3d;
+	font-weight: 500;
+	margin-bottom: 355px;
+}
+
+header ul a {
+	text-decoration: none;
+	color: black;
+}
+
+#loginLink {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+#login_error {
+	padding-top: 47px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #B1663C;
+	font-size: 16px;
+	font-weight: 800;
+	display: none;
+}
+
+.mode_edition {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 59px;
+	background-color: black;
+	color: white;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin-bottom: 38px;
+}
+
+.mode_edition .fa-regular {
+	background-color: black;
+	color: white;
+	display: flex;
+	justify-content: center;
+	margin-right: 11px;
+}
+
+#edition {
+	display: none;
+}
+
+h2 #modif_projet {
+	color : black;
+	font-size: 14px;
+	font-weight: 400;
+	margin-left: 31px;
+	display: none;
+	text-decoration: none;
+	font-family: 'Work Sans';
+}
+
+#modif_projet .fa-regular {
+	margin-right: 10px;
+}
 

@@ -1,48 +1,48 @@
-const btnConnexion = document.getElementById("login-validation");
+// CONSTANTS
+const BASE_URL = "http://localhost:5678/api/";
+const USERS_API = `${BASE_URL}users/login`;
+const LOGIN_BUTTON = document.getElementById("se_connecter");
 
-async function verifLogin(response) {
-    const errorLogin = document.getElementById("error-login");
+// EVENT LISTENER
+LOGIN_BUTTON.addEventListener("click", loginUser);
 
-    try {
-        if (response.ok) {
-            const responseData = await response.json();
-            handleSuccessfulLogin(responseData.token);
-        } else {
-            errorLogin.innerText = `Erreur dans l’identifiant ou le mot de passe`;
-        }
-    } catch (error) {
-        console.error("An error occurred while processing the login response:", error);
-        // Handle error appropriately, e.g., show a generic error message to the user
-    }
-}
-
-function handleSuccessfulLogin(token) {
-    // Handle successful login, e.g., store the token, redirect, update UI, etc.
-    console.log("Successfully logged in with token:", token);
-    sessionStorage.setItem("token", JSON.stringify(token));
-    window.location.href = "index.html";
-}
-
-btnConnexion.addEventListener("click", async (event) => {
-    event.preventDefault();
-    const email = document.getElementById("email-info").value;
-    const password = document.getElementById("password-info").value;
+// LOGIN USER FUNCTION
+async function loginUser() {
+    // RETRIEVE EMAIL AND PASSWORD
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
     try {
-        const response = await fetch('http://localhost:5678/api/users/login', {
-            method: "POST",
+        // CALL API TO VERIFY EMAIL AND PASSWORD
+        const response = await fetch(USERS_API, {
+            method: 'POST',
             headers: {
-                accept: "application/json",
-                "Content-Type": "application/json"
+                'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify({ email, password })
         });
 
-        await verifLogin(response);
+        if (response.ok) {
+            // IF LOGIN IS SUCCESSFUL, CONVERT RESPONSE TO JSON
+            const data = await response.json();
+
+            // STORE TOKEN IN SESSION STORAGE
+            sessionStorage.setItem("token", data.token);
+
+            // REDIRECT TO THE HOME PAGE
+            window.location.href = "index.html";
+        } else {
+            // IF EMAIL OR PASSWORD IS INCORRECT, DISPLAY ERROR MESSAGE
+            const loginError = document.getElementById("login_error");
+            loginError.innerHTML = "E-mail ou mot de passe incorrect";
+            loginError.style.display = "flex";
+        }
     } catch (error) {
-        console.error("An error occurred while processing the login request:", error);
-        // Handle error appropriately, e.g., show a generic error message to the user
+        // HANDLE NETWORK ERRORS OR OTHER EXCEPTIONS
+        console.error("An error occurred:", error);
+        // Display a generic error message to the user
+        const loginError = document.getElementById("login_error");
+        loginError.innerHTML = "Une erreur s'est produite. Veuillez réessayer.";
+        loginError.style.display = "flex";
     }
-});
-
-
+}
